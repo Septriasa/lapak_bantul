@@ -9,7 +9,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // Bagian untuk mendeteksi geseran halaman
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -28,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         child: Stack(
           children: [
-            // Konten yang bisa digeser
             PageView(
               controller: _pageController,
               onPageChanged: (int page) {
@@ -52,7 +50,6 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
             ),
 
-            // Navigasi Atas (Lewati) & Indikator Bawah
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
@@ -66,16 +63,12 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ),
                     const Spacer(),
-                    
-                    // Indikator Titik (Dot Indicator)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(2, (index) => _buildDot(index)),
                     ),
                     
                     const SizedBox(height: 30),
-
-                    // Tombol Dinamis (Selanjutnya / Mulai)
                     SizedBox(
                       width: double.infinity,
                       height: 55,

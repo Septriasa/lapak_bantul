@@ -14,8 +14,6 @@ class PageNew extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-
-            // ================= TOP BAR =================
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
@@ -38,7 +36,6 @@ class PageNew extends StatelessWidget {
               ),
             ),
 
-            // ================= HEADER =================
             Container(
               height: 170,
               width: double.infinity,
@@ -75,14 +72,12 @@ class PageNew extends StatelessWidget {
                     ),
                   ),
 
-                  // TEXT + LOGO
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
 
-                        // TEXT
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,7 +101,6 @@ class PageNew extends StatelessWidget {
                           ],
                         ),
 
-                        // LOGO
                         Padding(
                           padding: const EdgeInsets.only(left: 12),
                           child: ClipOval(
@@ -128,7 +122,6 @@ class PageNew extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // ================= MENU GRID =================
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),

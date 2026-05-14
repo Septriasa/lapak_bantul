@@ -12,7 +12,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
-  // Variabel status tampilan untuk kedua password
   bool _isPasswordObscured = true;
   bool _isConfirmPasswordObscured = true;
 
@@ -91,14 +90,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 // --- Kata Sandi ---
                 TextFormField(
                   controller: _passwordController,
-                  // Gunakan variabel status pertama
                   obscureText: _isPasswordObscured, 
                   decoration: _buildInputDecoration(
                     'Kata Sandi',
                     Icons.lock_outline,
                     isPassword: true,
                     obscureTextStatus: _isPasswordObscured,
-                    // Tambahkan fungsi untuk mengubah status input ini
                     onEyePressed: () {
                       setState(() {
                         _isPasswordObscured = !_isPasswordObscured;
@@ -114,17 +111,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 20),
 
-                // --- Konfirmasi Kata Sandi ---
                 TextFormField(
                   controller: _confirmPasswordController,
-                  // Gunakan variabel status kedua
                   obscureText: _isConfirmPasswordObscured, 
                   decoration: _buildInputDecoration(
                     'Konfirmasi Kata Sandi',
                     Icons.lock_outline,
                     isPassword: true,
                     obscureTextStatus: _isConfirmPasswordObscured,
-                    // Tambahkan fungsi untuk mengubah status input ini
                     onEyePressed: () {
                       setState(() {
                         _isConfirmPasswordObscured = !_isConfirmPasswordObscured;
@@ -142,8 +136,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
                 const SizedBox(height: 32),
-
-                // --- Tombol Daftar ---
                 SizedBox(
                   width: double.infinity,
                   height: 55,
@@ -188,18 +180,16 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  // Update fungsi helper untuk menangani interaksi ikon mata
   InputDecoration _buildInputDecoration(
     String label,
     IconData icon, {
     bool isPassword = false,
-    bool? obscureTextStatus, // Terima status terbaru
-    VoidCallback? onEyePressed, // Terima fungsi klik
+    bool? obscureTextStatus, 
+    VoidCallback? onEyePressed, 
   }) {
     return InputDecoration(
       labelText: label,
       prefixIcon: Icon(icon, color: const Color(0xFF003366)),
-      // Gunakan IconButton di sini
       suffixIcon: isPassword
           ? IconButton(
               icon: Icon(
@@ -208,7 +198,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     : Icons.visibility_outlined,
                 color: Colors.grey,
               ),
-              onPressed: onEyePressed, // Panggil fungsi saat dipencet
+              onPressed: onEyePressed, 
             )
           : null,
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),

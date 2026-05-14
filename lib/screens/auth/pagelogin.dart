@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lapak_bantul/screens/auth/forgot_password.dart';
 import '../../home_page.dart'; 
 import '../auth/register_page.dart';
+import '../auth/forgot_password.dart'; 
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,7 +12,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // Variabel untuk melacak status tampilan password
   bool _isPasswordObscured = true;
 
   @override
@@ -25,7 +26,6 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 40),
-                // Logo Ikon Bulat Putih
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: const BoxDecoration(
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 48),
 
-                // Input Field Email (Gunakan TextFormField agar konsisten)
+                // Input Email
                 TextFormField(
                   style: const TextStyle(color: Color(0xFF003366)),
                   decoration: InputDecoration(
@@ -74,17 +74,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20),
 
-                // Input Field Kata Sandi
+                // Input Kata Sandi
                 TextFormField(
                   style: const TextStyle(color: Color(0xFF003366)),
-                  // Gunakan variabel boolean di sini
                   obscureText: _isPasswordObscured, 
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Kata Sandi',
                     prefixIcon: const Icon(Icons.lock_outline, color: Color(0xFF003366)),
-                    // Ganti Icon dengan IconButton
                     suffixIcon: IconButton(
                       icon: Icon(
                         _isPasswordObscured
@@ -93,7 +91,6 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.grey,
                       ),
                       onPressed: () {
-                        // Perbarui tampilan saat dipencet
                         setState(() {
                           _isPasswordObscured = !_isPasswordObscured;
                         });
@@ -106,24 +103,24 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
-                // Lupa Kata Sandi
-                // Cari bagian widget Align untuk Lupa kata sandi
-Align(
-  alignment: Alignment.centerRight,
-  child: TextButton(
-    onPressed: () {
-      // Menambahkan navigasi ke RegisterPage
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const RegisterPage()),
-      );
-    },
-    child: const Text(
-      'Lupa kata sandi?',
-      style: TextStyle(color: Colors.white),
-    ),
-  ),
-),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ForgotPassword()),
+                      );
+                    },
+                    child: const Text(
+                      'Lupa kata sandi?',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 24),
 
                 // Tombol Masuk
@@ -155,7 +152,7 @@ Align(
                 ),
                 const SizedBox(height: 32),
 
-                // Link Daftar Akun
+                // Daftar Akun
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -178,7 +175,6 @@ Align(
                               ),
                               backgroundColor: Colors.green,
                               duration: Duration(seconds: 4),
-                              behavior: SnackBarBehavior.fixed,
                             ),
                           );
                         }
