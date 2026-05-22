@@ -24,8 +24,7 @@ class InformasiPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            // ===== PBB =====
+            //PBB
             sectionTitle("PBB"),
             infoTile(
               title: "Apa itu PBB?",
@@ -40,7 +39,7 @@ class InformasiPage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // ===== BPHTB =====
+            //BPHTB
             sectionTitle("BPHTB"),
             infoTile(
               title: "Apa itu BPHTB?",
@@ -55,7 +54,7 @@ class InformasiPage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // ===== LAYANAN =====
+            //LAYANAN
             sectionTitle("Layanan"),
             infoTile(
               title: "Jam Pelayanan",
@@ -73,7 +72,7 @@ class InformasiPage extends StatelessWidget {
     );
   }
 
-  // 🔹 WIDGET JUDUL SECTION
+  //WIDGET JUDUL SECTION
   Widget sectionTitle(String title) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
@@ -93,7 +92,7 @@ class InformasiPage extends StatelessWidget {
     );
   }
 
-  // 🔹 WIDGET EXPANSION TILE (BIAR BISA DIKLIK & BUKA)
+  //WIDGET EXPANSION TILE (BIAR BISA DIKLIK & BUKA)
   Widget infoTile({
     required String title,
     required String content,

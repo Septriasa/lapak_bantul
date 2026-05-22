@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lapak_bantul/screens/tax/page_pbb.dart';
 import 'screens/tax/informasipage.dart';
 import 'screens/tax/page_layanankeliling.dart';
 import 'screens/tax/page_bphtb.dart';
 import 'screens/tax/page_pbb_search.dart';
+import 'main_navigation.dart'; 
 
 class PageNew extends StatelessWidget {
   const PageNew({super.key});
@@ -44,8 +46,6 @@ class PageNew extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-
-                  // Lingkaran dekorasi
                   Positioned(
                     left: -40,
                     top: 20,
@@ -77,7 +77,6 @@ class PageNew extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +99,6 @@ class PageNew extends StatelessWidget {
                             ),
                           ],
                         ),
-
                         Padding(
                           padding: const EdgeInsets.only(left: 12),
                           child: ClipOval(
@@ -112,7 +110,6 @@ class PageNew extends StatelessWidget {
                             ),
                           ),
                         ),
-
                       ],
                     ),
                   )
@@ -122,6 +119,7 @@ class PageNew extends StatelessWidget {
 
             const SizedBox(height: 20),
 
+            // Grid Menu Utama
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -132,20 +130,19 @@ class PageNew extends StatelessWidget {
                   childAspectRatio: 1,
                   children: [
                     MenuCard(
-                      icon: Icons.local_shipping,
+                      icon: Icons.description,
                       title: "PBB",
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PagePbbSearch(),
+                            builder: (context) => PagePBB(nop: "123456789012345678"),
                           ),
                         );
                       },
                     ),
-
                     MenuCard(
-                      icon: Icons.local_shipping,
+                      icon: Icons.assignment,
                       title: "BPHTB",
                       onTap: () {
                         Navigator.push(
@@ -157,7 +154,6 @@ class PageNew extends StatelessWidget {
                       },
                     ),
                     const MenuCard(icon: Icons.event_note, title: "Rekap"),
-
                     MenuCard(
                       icon: Icons.local_shipping,
                       title: "Layanan\nKeliling",
@@ -170,7 +166,6 @@ class PageNew extends StatelessWidget {
                         );
                       },
                     ),
-
                     MenuCard(
                       icon: Icons.info,
                       title: "Informasi",
@@ -183,7 +178,6 @@ class PageNew extends StatelessWidget {
                         );
                       },
                     ),
-
                     const MenuCard(icon: Icons.grid_view, title: "Lainnya"),
                   ],
                 ),
@@ -191,6 +185,10 @@ class PageNew extends StatelessWidget {
             )
           ],
         ),
+      ),
+
+      bottomNavigationBar: const MainNavigation(
+        currentIndex: 0, 
       ),
     );
   }

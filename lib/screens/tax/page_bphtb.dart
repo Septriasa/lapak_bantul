@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page_layanankeliling.dart';
+import 'package:lapak_bantul/main_navigation.dart'; // Import file navigasi Anda agar tidak error merah
 
 class PageBPHTB extends StatelessWidget {
   const PageBPHTB({super.key});
@@ -12,7 +13,7 @@ class PageBPHTB extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // ================= HEADER =================
+              //HEADER
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.fromLTRB(20, 25, 20, 30),
@@ -58,7 +59,7 @@ class PageBPHTB extends StatelessWidget {
 
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xffF2F4F8),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
@@ -66,16 +67,16 @@ class PageBPHTB extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
-                    children: [
-                     
+                    children: const [
+                       //Tempat kontent tambahan jika diperlukan
                     ],
                   ),
                 ),
               ),
 
-              // ================= GRID MENU =================
+              //GRID MENU
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: GridView.count(
@@ -96,7 +97,7 @@ class PageBPHTB extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              // ================= LAYANAN KELILING =================
+              //LAYANAN KELILING
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: GestureDetector(
@@ -155,6 +156,8 @@ class PageBPHTB extends StatelessWidget {
                 ),
               ),
 
+              const SizedBox(height: 25),
+
               // ================= INFORMASI PAJAK =================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -185,6 +188,11 @@ class PageBPHTB extends StatelessWidget {
             ],
           ),
         ),
+      ),
+
+      // DI SINI TEMPATNYA: Bottom Navigation dimasukkan di dalam properti Scaffold
+      bottomNavigationBar: const MainNavigation(
+        currentIndex: 2, // Index 2 sesuai urutan menu BPHTB Anda
       ),
     );
   }

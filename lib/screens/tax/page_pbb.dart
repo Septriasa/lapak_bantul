@@ -19,10 +19,7 @@ class PagePBB extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
-          "PBB",
-          style: TextStyle(color: Colors.black),
-        ),
+        title: const Text("PBB", style: TextStyle(color: Colors.black)),
       ),
 
       body: Padding(
@@ -30,18 +27,13 @@ class PagePBB extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            Text(
-              "NOP: $nop",
-              style: const TextStyle(fontSize: 16),
-            ),
+            Text("NOP: $nop", style: const TextStyle(fontSize: 16)),
 
             const SizedBox(height: 20),
 
             Expanded(
               child: ListView(
                 children: [
-
                   CardPajak(
                     tahun: "2021",
                     alamat: "DS. Ngireng-ireng RT01/RW01",
@@ -89,7 +81,6 @@ class CardPajak extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-
         Container(
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
@@ -100,19 +91,16 @@ class CardPajak extends StatelessWidget {
                 color: Colors.black.withOpacity(0.08),
                 blurRadius: 5,
                 offset: const Offset(0, 3),
-              )
+              ),
             ],
           ),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Text(
                 "SPPT $tahun",
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 10),
@@ -142,7 +130,7 @@ class CardPajak extends StatelessWidget {
                     Icon(Icons.arrow_forward_ios, size: 14),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -159,10 +147,7 @@ class CardPajak extends StatelessWidget {
                 bottomLeft: Radius.circular(12),
               ),
             ),
-            child: Text(
-              status,
-              style: const TextStyle(color: Colors.white),
-            ),
+            child: Text(status, style: const TextStyle(color: Colors.white)),
           ),
         ),
       ],
