@@ -4,7 +4,7 @@ import 'screens/tax/informasipage.dart';
 import 'screens/tax/page_layanankeliling.dart';
 import 'screens/tax/page_bphtb.dart';
 import 'screens/tax/page_pbb_search.dart';
-import 'main_navigation.dart'; 
+import 'main_navigation.dart';
 
 class PageNew extends StatelessWidget {
   const PageNew({super.key});
@@ -23,17 +23,14 @@ class PageNew extends StatelessWidget {
                 children: [
                   const Text(
                     "Beranda",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const CircleAvatar(
                     radius: 20,
                     backgroundImage: AssetImage(
                       "assets/images/logo-removebg-preview.jpg",
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -41,9 +38,7 @@ class PageNew extends StatelessWidget {
             Container(
               height: 170,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Color(0xff0E3A66),
-              ),
+              decoration: const BoxDecoration(color: Color(0xff0E3A66)),
               child: Stack(
                 children: [
                   Positioned(
@@ -112,7 +107,7 @@ class PageNew extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -136,7 +131,8 @@ class PageNew extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PagePBB(nop: "123456789012345678"),
+                            builder: (context) =>
+                                PagePBB(nop: "123456789012345678"),
                           ),
                         );
                       },
@@ -182,14 +178,12 @@ class PageNew extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
 
-      bottomNavigationBar: const MainNavigation(
-        currentIndex: 0, 
-      ),
+      bottomNavigationBar: const MainNavigation(currentIndex: 0),
     );
   }
 }
@@ -245,7 +239,7 @@ class _MenuCardState extends State<MenuCard> {
                 color: Colors.black.withOpacity(0.08),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
-              )
+              ),
             ],
           ),
           child: Column(
@@ -260,7 +254,7 @@ class _MenuCardState extends State<MenuCard> {
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                 ),
-              )
+              ),
             ],
           ),
         ),

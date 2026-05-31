@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lapak_bantul/screens/auth/forgot_password.dart';
-import '../../home_page.dart'; 
+import '../../home_page.dart';
 import '../auth/register_page.dart';
-import '../auth/forgot_password.dart'; 
+import '../auth/forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -51,10 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Text(
                   'Selamat datang kembali di LaPak Bantul',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.white70),
                 ),
                 const SizedBox(height: 48),
 
@@ -65,7 +62,10 @@ class _LoginPageState extends State<LoginPage> {
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Email',
-                    prefixIcon: const Icon(Icons.email_outlined, color: Color(0xFF003366)),
+                    prefixIcon: const Icon(
+                      Icons.email_outlined,
+                      color: Color(0xFF003366),
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
@@ -77,12 +77,15 @@ class _LoginPageState extends State<LoginPage> {
                 // Input Kata Sandi
                 TextFormField(
                   style: const TextStyle(color: Color(0xFF003366)),
-                  obscureText: _isPasswordObscured, 
+                  obscureText: _isPasswordObscured,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Kata Sandi',
-                    prefixIcon: const Icon(Icons.lock_outline, color: Color(0xFF003366)),
+                    prefixIcon: const Icon(
+                      Icons.lock_outline,
+                      color: Color(0xFF003366),
+                    ),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _isPasswordObscured
@@ -109,7 +112,9 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ForgotPassword()),
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPassword(),
+                        ),
                       );
                     },
                     child: const Text(
@@ -137,7 +142,9 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const PageNew()),
+                        MaterialPageRoute(
+                          builder: (context) => const PageNew(),
+                        ),
                       );
                     },
                     child: const Text(
@@ -164,14 +171,19 @@ class _LoginPageState extends State<LoginPage> {
                       onTap: () async {
                         final result = await Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const RegisterPage()),
+                          MaterialPageRoute(
+                            builder: (context) => const RegisterPage(),
+                          ),
                         );
                         if (result == 'register_success' && context.mounted) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text(
                                 'Pendaftaran berhasil! Silakan masuk.',
-                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               backgroundColor: Colors.green,
                               duration: Duration(seconds: 4),
