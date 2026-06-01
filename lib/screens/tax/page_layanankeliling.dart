@@ -217,9 +217,9 @@ class _PageLayanankelilingState extends State<PageLayanankeliling> {
   }
 
   String formatLabelDate(String dateStr) {
-    if (dateStr == "21/01/2024") return "21 Januari 2024";
-    if (dateStr == "25/01/2024") return "25 Januari 2024";
-    if (dateStr == "28/01/2024") return "28 Januari 2024";
+    if (dateStr == "21/01/2026") return "21 Januari 2026";
+    if (dateStr == "4/02/2026") return "25 Februari 2026";
+    if (dateStr == "15/03/2026") return "28 Maret 2026";
     return dateStr;
   }
 }

@@ -13,7 +13,7 @@ class PageBPHTB extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              //HEADER
+              // ================= HEADER =================
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.fromLTRB(20, 25, 20, 30),
@@ -76,7 +76,7 @@ class PageBPHTB extends StatelessWidget {
                 ),
               ),
 
-              //GRID MENU
+              // ================= GRID MENU =================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: GridView.count(
@@ -97,7 +97,7 @@ class PageBPHTB extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              //LAYANAN KELILING
+              // ================= LAYANAN KELILING =================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: GestureDetector(
@@ -158,27 +158,58 @@ class PageBPHTB extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              // ================= INFORMASI PAJAK =================
+              // ================= INFORMASI PAJAK (SUDAH DIUPGRADE) =================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Informasi pajak",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Informasi pajak",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            // Aksi lihat semua informasi pajak
+                          },
+                          child: const Text(
+                            "Lihat Semua",
+                            style: TextStyle(
+                              color: Color(0xff0D3B66),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13,
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                    const SizedBox(height: 12),
-                    Container(
-                      height: 130,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
+                    const SizedBox(height: 4),
+
+                    // Daftar Berita Dinamis Terintegrasi dengan Desain LaPak Bantul
+                    _buildInfoCard(
+                      title: "Batas Akhir Pembayaran PBB-P2 Kabupaten Bantul Tahun 2026",
+                      date: "02 Juni 2026",
+                      category: "PBB",
+                      icon: Icons.date_range,
+                    ),
+                    _buildInfoCard(
+                      title: "Cara Praktis Cek Tagihan Pajak Daerah Lewat Aplikasi LaPak Bantul",
+                      date: "28 Mei 2026",
+                      category: "Edukasi",
+                      icon: Icons.phone_android,
+                    ),
+                    _buildInfoCard(
+                      title: "Inovasi Layanan Keliling Drive-Thru Guna Permudah Wajib Pajak",
+                      date: "15 Mei 2026",
+                      category: "Layanan",
+                      icon: Icons.local_shipping,
                     ),
                   ],
                 ),
@@ -190,9 +221,118 @@ class PageBPHTB extends StatelessWidget {
         ),
       ),
 
-      // DI SINI TEMPATNYA: Bottom Navigation dimasukkan di dalam properti Scaffold
+      // Bottom Navigation dimasukkan di dalam properti Scaffold
       bottomNavigationBar: const MainNavigation(
         currentIndex: 2, // Index 2 sesuai urutan menu BPHTB Anda
+      ),
+    );
+  }
+
+  // ================= HELPER WIDGET FOR CARD INFORMASI PAJAK =================
+  Widget _buildInfoCard({
+    required String title,
+    required String date,
+    required String category,
+    required IconData icon,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(15),
+          onTap: () {
+            // Aksi saat item berita diklik oleh user
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Row(
+              children: [
+                // Ruang Icon Bertema Biru LaPak Bantul
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff0D3B66).withOpacity(0.08),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(
+                    icon,
+                    color: const Color(0xff0D3B66),
+                    size: 24,
+                  ),
+                ),
+                const SizedBox(width: 14),
+
+                // Detail Teks Konten
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: const Color(0xff0D3B66),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          category,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87,
+                          height: 1.3,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          const Icon(Icons.access_time, size: 12, color: Colors.grey),
+                          const SizedBox(width: 4),
+                          Text(
+                            date,
+                            style: const TextStyle(
+                              fontSize: 11,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 14,
+                  color: Colors.black26,
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
