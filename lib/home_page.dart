@@ -53,7 +53,6 @@ class PageNew extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Positioned(
                     left: 40,
                     bottom: -60,
@@ -66,7 +65,6 @@ class PageNew extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -182,7 +180,6 @@ class PageNew extends StatelessWidget {
           ],
         ),
       ),
-
       bottomNavigationBar: const MainNavigation(currentIndex: 0),
     );
   }
